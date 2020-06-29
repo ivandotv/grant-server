@@ -52,8 +52,6 @@ module.exports = {
           }
         ]
       ],
-      plugins: [['transform-define', browserReplacements]],
-
       ignore: ignoreForProduction
     }
   }
