@@ -31,7 +31,8 @@ export function main(args: string[], program: commander.Command): void {
 
   const debug = normalizeDebugFlag(program.debug)
   const proxy = normalizeProxyFlag(program.trustProxy)
-  const configFilePath = path.resolve(__dirname, program.config)
+  const configFilePath = path.resolve(program.config)
+
   const config = loadConfig(configFilePath)
 
   const server = new GrantServer(proxy, debug)
