@@ -64,7 +64,6 @@ describe('CLI args', () => {
     try {
       main(args, program)
     } catch (e) {
-      console.log('E ', e)
       expect(program.trustProxy).toBe(true)
     }
   })
@@ -80,7 +79,18 @@ describe('CLI args', () => {
       expect(program.trustProxy).toBe(proxyOpts)
     }
   })
+  test('If trust-proxy flag is not used, default to true', () => {
+    program.exitOverride()
+    args.push('-c', configPath)
+
+    try {
+      main(args, program)
+    } catch {
+      expect(program.trustProxy).toBe(true)
+    }
+  })
   test('Version number is the same as the package.json version number', () => {
+    console.log = jest.fn()
     const fs = jest.requireActual('fs')
     const version = JSON.parse(
       fs.readFileSync(path.resolve(__dirname, '../package.json')).toString()

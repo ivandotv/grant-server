@@ -71,6 +71,8 @@ function normalizeProxyFlag(proxy: boolean | string): boolean | string {
     if (proxy === 'false') {
       proxy = false
     }
+  } else {
+    proxy = true
   }
 
   return proxy
