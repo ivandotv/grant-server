@@ -1,7 +1,7 @@
 // const main = require('./main')
 import { main } from './main'
-const commander = require('commander')
-const chalk = require('chalk')
+import commander from 'commander'
+import chalk from 'chalk'
 
 process.on('uncaughtException', handleError)
 process.on('unhandledRejection', handleError)
