@@ -6,16 +6,10 @@ import fs from 'fs'
 const fsMock = jest.genMockFromModule<typeof fs>('fs')
 
 const MOCK_FILES = {
-  'path/to/files/test-1.json': JSON.stringify(
-    require('../_fixtures_/test-1.json')
+  'path/to/config-1.json': JSON.stringify(
+    require('../__fixtures__/config.json')
   ),
-  'path/to/files/test-2.json': JSON.stringify(
-    require('../_fixtures_/test-2.json')
-  ),
-  'path/to/files/test-3.json': JSON.stringify(
-    require('../_fixtures_/test-3.json')
-  ),
-  'path/to/files/error.json': 'malformedJSon',
+  'path/to/files/error.json': 'malformedJSon'
 }
 
 let mockFiles = Object.create(null)

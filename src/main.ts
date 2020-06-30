@@ -23,26 +23,30 @@ export function main(args: string[], program: commander.Command): void {
       './config.json'
     )
     .option(
-      '-p, --trust-proxy <proxy-options>',
+      '-p, --trust-proxy [proxy-options]',
       'Expressjs trust proxy options'
     )
 
   program.parse(args)
 
-  const debug = normalizeDebugFlag(program.debug)
-  const proxy = normalizeProxyFlag(program.trustProxy)
-  const configFilePath = path.resolve(program.config)
+  program.debug = normalizeDebugFlag(program.debug)
 
-  const config = loadConfig(configFilePath)
+  program.trustProxy = normalizeProxyFlag(program.trustProxy)
 
-  const server = new GrantServer(proxy, debug)
+  program.config = path.isAbsolute(program.config)
+    ? program.config
+    : path.resolve(program.config)
+
+  const config = loadConfig(program.config)
+
+  const server = new GrantServer(program.trustProxy, program.debug)
   server.start(config)
 
   const watcher = new FileWatcher()
-  watcher.start(configFilePath, async () => {
+  watcher.start(program.config, async () => {
     console.log('reloading configuration')
     await server.stop()
-    await server.start(loadConfig(configFilePath))
+    await server.start(loadConfig(program.config))
   })
 }
 
@@ -66,11 +70,7 @@ function normalizeProxyFlag(proxy: boolean | string): boolean | string {
   if (proxy) {
     if (proxy === 'false') {
       proxy = false
-    } else if (proxy === 'true') {
-      proxy = true
     }
-  } else {
-    proxy = true
   }
 
   return proxy
