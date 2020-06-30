@@ -1,17 +1,11 @@
 {
-  "custom":{
-    "a":"xx"
-  },
   "defaults": {
     "origin": "http://localhost:3000",
     "response": ["tokens"]
   },
   "google": {
-    "key": "448936472567-tta44uum5pkdcgt1jcaikvvhonbmnom4.apps.googleusercontent.com",
     "secret": "ak3oEr70o6Zw8YOTn-fQwFMZ",
-    "callback": "https://dev.to",
-    "scope": [
-      "openid"
-    ]
+    "callback": "localhost/callback",
+    "scope": ["openid"]
   }
 }

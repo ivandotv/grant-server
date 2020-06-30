@@ -19,7 +19,7 @@ export class GrantServer {
 
   protected port: number = 3000
 
-  protected server: Server | undefined
+  server: Server | undefined
 
   constructor(protected proxy: boolean | string, debug: string | boolean) {
     this.sessionSecret = (Math.random() * 100).toString()
