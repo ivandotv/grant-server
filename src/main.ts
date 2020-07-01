@@ -1,7 +1,7 @@
 import { GrantServer, GruntConfig } from './server'
+import * as watcher from 'chokidar'
 import fs from 'fs'
 import path from 'path'
-import { FileWatcher } from './watcher'
 import commander from 'commander'
 /**
  * Entry point for the application
@@ -42,12 +42,18 @@ export function main(args: string[], program: commander.Command): void {
   const server = new GrantServer(program.trustProxy, program.debug)
   server.start(config)
 
-  const watcher = new FileWatcher()
-  watcher.start(program.config, async () => {
-    console.log('reloading configuration')
-    await server.stop()
-    await server.start(loadConfig(program.config))
-  })
+  watcher
+    .watch(program.config, {
+      persistent: true
+    })
+    .on('ready', () => {
+      console.log(`watching file for changes: ${program.config}`)
+    })
+    .on('change', async () => {
+      console.log('reloading configuration')
+      await server.stop()
+      await server.start(loadConfig(program.config))
+    })
 }
 
 function loadConfig(filePath: string): GruntConfig {
