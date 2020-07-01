@@ -7,6 +7,11 @@ import chalk from 'chalk'
 process.on('uncaughtException', handleError)
 process.on('unhandledRejection', handleError)
 
+// added specifically because of the docker container version
+process.on('SIGINT', () => {
+  process.exit(0)
+})
+
 /**
  * Handle program error
  *
