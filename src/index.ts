@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { main } from './main'
 import commander from 'commander'
 import chalk from 'chalk'
