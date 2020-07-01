@@ -1,7 +1,7 @@
 # Grant Server
 
 ![Codecov](https://img.shields.io/codecov/c/github/ivandotv/grant-server)
-![CI](https://github.com/ivandotv/grant-server/workflows/CI/badge.svg)
+![CI](https://github.com/ivandotv/grant-server/workflows/Unit%20tests/badge.svg)
 
 This module is packaged [Grant OAuth proxy server](https://github.com/simov/grant). That means that you can just install this package and run `grant-srv` to have a proxy OAuth server running.
 
