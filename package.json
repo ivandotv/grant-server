@@ -1,6 +1,6 @@
 {
   "name": "grant-server",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "",
   "main": "dist/cjs/index.js",
   "types": "dist/types/",
@@ -47,7 +47,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ivandotv/grant-server.git"
+    "url": "https://github.com/ivandotv/grant-server.git"
   },
   "bugs": {
     "url": "https://github.com/ivandotv/grant-server/issues"
@@ -103,7 +103,7 @@
     "prettier-standard": "^16.3.0",
     "rollup": "^2.15.0",
     "run-script-os": "^1.1.1",
-    "semantic-release": "^17.0.8",
+    "semantic-release": "^17.1.1",
     "standardx": "^5.0.0",
     "typescript": "^3.9.5"
   },
