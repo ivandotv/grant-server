@@ -1,4 +1,3 @@
-// const main = require('./main')
 import { main } from './main'
 import commander from 'commander'
 import chalk from 'chalk'
@@ -8,9 +7,9 @@ process.on('unhandledRejection', handleError)
 
 function handleError(e: any): void {
   if (typeof e.message !== 'undefined') {
-    console.log(chalk.bold.red(`Error ${e.message}`))
+    console.error(chalk.bold.red(`Error ${e.message}`))
   } else {
-    console.log(e)
+    console.error(e)
   }
   process.exit(1)
 }
