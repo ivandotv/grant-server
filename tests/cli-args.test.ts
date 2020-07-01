@@ -89,6 +89,17 @@ describe('CLI args', () => {
       expect(program.trustProxy).toBe(true)
     }
   })
+  test('If trust-proxy flag is set to false, disable proxy', () => {
+    program.exitOverride()
+    args.push('-c', configPath)
+    args.push('-p', 'false')
+
+    try {
+      main(args, program)
+    } catch (e) {
+      expect(program.trustProxy).toBe(false)
+    }
+  })
   test('Version number is the same as the package.json version number', () => {
     console.log = jest.fn()
     const fs = jest.requireActual('fs')
