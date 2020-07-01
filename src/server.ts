@@ -1,5 +1,6 @@
 import express from 'express'
 import session from 'express-session'
+import parser from 'body-parser'
 // @ts-ignore
 import grant from 'grant'
 import { Server } from 'http'
@@ -62,6 +63,7 @@ export class GrantServer {
             resave: false
           })
         )
+        .use(parser.urlencoded({ extended: true }))
         .use(grantExpress(this.configuration))
         .listen(this.port, () => {
           console.log(`server started on port ${this.port}`)
