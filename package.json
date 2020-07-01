@@ -1,10 +1,8 @@
 {
-  "name": "untitled",
+  "name": "grant-server",
   "version": "1.0.0",
-  "private": true,
   "description": "",
   "main": "dist/cjs/index.js",
-  "sideEffects": true,
   "types": "dist/types/",
   "files": [
     "dist",
@@ -49,13 +47,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ivandotv/node-module-ts.git"
+    "url": "git+https://github.com/ivandotv/grant-server.git"
   },
   "bugs": {
-    "url": "https://github.com/ivandotv/node-module-ts/issues"
+    "url": "https://github.com/ivandotv/grant-server/issues"
   },
-  "homepage": "https://github.com/ivandotv/node-module-ts#readme",
-  "keywords": [],
+  "homepage": "https://github.com/ivandotv/grant-server",
+  "keywords": [
+    "grant",
+    "server",
+    "oauth",
+    "proxy",
+    "oauth proxy",
+    "grant server"
+  ],
   "author": "Ivan Vlatkovic",
   "devDependencies": {
     "@babel/cli": "^7.10.1",
