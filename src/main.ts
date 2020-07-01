@@ -1,4 +1,4 @@
-import { GrantServer, GruntConfig } from './server'
+import { GrantServer, GrantConfig } from './server'
 import * as watcher from 'chokidar'
 import fs from 'fs'
 import path from 'path'
@@ -59,9 +59,9 @@ export function main(args: string[], program: commander.Command): void {
 /**
  * Load and parse configuration file
  * @param filePath  path to file
- * @returns GruntConfig
+ * @returns GrantConfig
  */
-function loadConfig(filePath: string): GruntConfig {
+function loadConfig(filePath: string): GrantConfig {
   return JSON.parse(fs.readFileSync(filePath).toString())
 }
 

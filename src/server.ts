@@ -7,7 +7,7 @@ import { Server } from 'http'
 /**
  * Grunt configuration
  */
-export interface GruntConfig {
+export interface GrantConfig {
   defaults: {
     origin: string
   }
@@ -48,7 +48,7 @@ export class GrantServer {
    * @param configuration grunt configuration
    * @returns Promise to be resolved when server starts
    */
-  start(configuration: GruntConfig): Promise<void> {
+  start(configuration: GrantConfig): Promise<void> {
     this.configuration = configuration
     this.port = resolvePort(this.configuration)
 
