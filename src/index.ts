@@ -5,6 +5,11 @@ import chalk from 'chalk'
 process.on('uncaughtException', handleError)
 process.on('unhandledRejection', handleError)
 
+/**
+ * Handle program error
+ *
+ * @param e program error
+ */
 function handleError(e: any): void {
   if (typeof e.message !== 'undefined') {
     console.error(chalk.bold.red(`Error ${e.message}`))

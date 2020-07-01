@@ -4,6 +4,9 @@ import session from 'express-session'
 import grant from 'grant'
 import { Server } from 'http'
 
+/**
+ * Grunt configuration
+ */
 export interface GruntConfig {
   defaults: {
     origin: string
@@ -12,6 +15,9 @@ export interface GruntConfig {
 
 const grantExpress = grant.express()
 
+/**
+ * Grant server class
+ */
 export class GrantServer {
   protected sessionSecret: string
 
@@ -21,6 +27,12 @@ export class GrantServer {
 
   server: Server | undefined
 
+  /**
+   * Creates an instance of grant server.
+   *
+   * @param proxy - should proxy be used
+   * @param debug - should debug be used
+   */
   constructor(protected proxy: boolean | string, debug: string | boolean) {
     this.sessionSecret = (Math.random() * 100).toString()
     this.proxy = proxy
@@ -30,6 +42,12 @@ export class GrantServer {
     }
   }
 
+  /**
+   * Starts grant server
+   *
+   * @param configuration grunt configuration
+   * @returns Promise to be resolved when server starts
+   */
   start(configuration: GruntConfig): Promise<void> {
     this.configuration = configuration
     this.port = resolvePort(this.configuration)
@@ -52,6 +70,11 @@ export class GrantServer {
     })
   }
 
+  /**
+   * Stops grant server
+   *
+   * @returns Promise to be resolved when the server is stopped
+   */
   stop(): Promise<void> {
     return new Promise((resolve) => {
       this.server!.close((_error) => {

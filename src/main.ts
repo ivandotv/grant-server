@@ -3,12 +3,12 @@ import * as watcher from 'chokidar'
 import fs from 'fs'
 import path from 'path'
 import commander from 'commander'
+
 /**
  * Entry point for the application
  *
- * @export
- * @param {string[]} args
- * @param {Command} program
+ * @param args  program arguments
+ * @param program program instance
  */
 export function main(args: string[], program: commander.Command): void {
   program
@@ -56,10 +56,20 @@ export function main(args: string[], program: commander.Command): void {
     })
 }
 
+/**
+ * Load and parse configuration file
+ * @param filePath  path to file
+ * @returns GruntConfig
+ */
 function loadConfig(filePath: string): GruntConfig {
   return JSON.parse(fs.readFileSync(filePath).toString())
 }
 
+/**
+ * Normalize debug flag
+ * @param debug passed in debug flag
+ * @returns normalized debug flag
+ */
 function normalizeDebugFlag(debug: string | boolean): boolean | string {
   let result: boolean | string = false
 
@@ -72,6 +82,11 @@ function normalizeDebugFlag(debug: string | boolean): boolean | string {
   return result
 }
 
+/**
+ * Normalize proxy flag
+ * @param proxy passed in proxy flag
+ * @returns normalized proxy flag
+ */
 function normalizeProxyFlag(proxy: boolean | string): boolean | string {
   if (proxy) {
     if (proxy === 'false') {
