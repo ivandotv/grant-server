@@ -12,9 +12,6 @@ full_image_name_latest=${full_image_name}:latest
 if [[ -n "${GITHUB_WORKFLOW:-}" ]];then
     # get image tag from ref/tag
     full_image_name=$full_image_name:${SOURCE_TAG}
-
-    npm run build
-    exit
 fi
 
 
