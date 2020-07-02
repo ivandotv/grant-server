@@ -1,3 +1,8 @@
+### [1.0.3](https://github.com/ivandotv/grant-server/compare/v1.0.2...v1.0.3) (2020-07-02)
+
+
+* **readme:** clarify docker usage ([a18362b](https://github.com/ivandotv/grant-server/commit/a18362b04d7a9cd50201d01db1faf491db453411))
+
 ### [1.0.2](https://github.com/ivandotv/grant-server/compare/v1.0.1...v1.0.2) (2020-07-02)
 
 

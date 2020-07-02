@@ -1,6 +1,6 @@
 {
   "name": "grant-server",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Packaged grantjs OAuth server so you can run it immediately via command line. Perfect for microservice architecture.",
   "main": "dist/cjs/index.js",
   "types": "dist/types/",
