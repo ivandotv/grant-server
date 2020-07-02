@@ -27,4 +27,4 @@ jobs:
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKERHUB_REPOSITORY: ivandotv/test-repo
+          DOCKERHUB_REPOSITORY: ivandotv/grant-server
