@@ -1,3 +1,8 @@
+### [1.0.4](https://github.com/ivandotv/grant-server/compare/v1.0.3...v1.0.4) (2020-07-02)
+
+
+* **readme:** fix grammar ([824b4ef](https://github.com/ivandotv/grant-server/commit/824b4ef9c9051a58d094b0ecf095ba0efc89d8e5))
+
 ### [1.0.3](https://github.com/ivandotv/grant-server/compare/v1.0.2...v1.0.3) (2020-07-02)
 
 
