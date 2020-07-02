@@ -1,3 +1,8 @@
+### [1.0.2](https://github.com/ivandotv/grant-server/compare/v1.0.1...v1.0.2) (2020-07-02)
+
+
+* **readme:** Add docker usage section ([ee92dfa](https://github.com/ivandotv/grant-server/commit/ee92dfa0ae8d1854a4dca56c63223f9710090b08))
+
 ### [1.0.1](https://github.com/ivandotv/grant-server/compare/v1.0.0...v1.0.1) (2020-07-01)
 
 
