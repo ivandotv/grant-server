@@ -21,6 +21,7 @@ grant - server
 
 - [How it works](#how-it-works)
 - [Command line options](#command-line-options)
+- [Docker image](#docker-image)
 
 ## How it works
 
@@ -76,3 +77,28 @@ You can also send a `POST` request to the OAuth point like so:
 - `-d` or `--debug` Enable writing tokens to `stdout`. It uses [request-logs module](https://github.com/simov/request-logs). If only the flag is passed it will default to `res,json` otherwise you can customize what the output will be e.g. `-d res,req,json,body`
 
 - `p` or `--proxy` By default internal `express` app will have `trust proxy` flag set to `true`. You can pass in `false` to disable the proxy. Or use any of the options supported by the [express app](http://expressjs.com/en/api.html#trust.proxy.options.table)
+
+## Docker image
+
+Docker image is available on [docker hub](https://hub.docker.com/repository/docker/ivandotv/grant-server). Image is based on github releases, so it's always up to date.
+
+### Usage
+
+Pull the image:
+
+```bash
+docker image pull ivandotv/grant-server
+```
+
+Run the container:
+
+```bash
+docker run -it -v /config-dir:/opt/grant-server/config-dir ivandotv/grant-server -d -c config/config.json
+```
+
+Few things to keep in mind when using the docker image.
+
+- Server is started in `/opt/grant-server` directory.
+- Make sure that exposed port is the same as in the `config.json` file.
+- If you directly share the external config file via `-v config.json:/opt/grant-server/config.json` Automatic reloading of the server will not work, because the server will not **see** the changes in the files.
+  Better option is to bind **directories** where configuration file is located: `-v /config-dir:/opt/grant-server/config-dir`
