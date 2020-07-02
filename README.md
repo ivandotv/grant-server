@@ -100,5 +100,5 @@ Few things to keep in mind when using the docker image.
 
 - Server is started in `/opt/grant-server` directory.
 - Make sure that exposed port is the same as in the `config.json` file.
-- If you directly share the external config file via `-v config.json:/opt/grant-server/config.json` Automatic reloading of the server will not work, because the server will not **see** the changes in the files.
-  Better option is to bind **directories** where configuration file is located: `-v /config-dir:/opt/grant-server/config-dir`
+- If you mount only the external config file: `-v config.json:/opt/grant-server/config.json` Automatic reloading of the server will not work, because the server will not **see** the changes in the file.
+  Better option is to mount the **directory** where configuration file is located: `-v /config-dir:/opt/grant-server/config-dir` and then pass the `-c` flag to the container like so: `-c config/config.json`
