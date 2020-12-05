@@ -1,3 +1,8 @@
+### [1.0.10](https://github.com/ivandotv/grant-server/compare/v1.0.9...v1.0.10) (2020-12-05)
+
+
+* **readme:** update readme ([ba5c8df](https://github.com/ivandotv/grant-server/commit/ba5c8df86cfd3553c4e9ab4edbbd1c143ca2288f))
+
 ### [1.0.9](https://github.com/ivandotv/grant-server/compare/v1.0.8...v1.0.9) (2020-07-20)
 
 ### [1.0.8](https://github.com/ivandotv/grant-server/compare/v1.0.7...v1.0.8) (2020-07-02)
