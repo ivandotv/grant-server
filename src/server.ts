@@ -33,7 +33,7 @@ export class GrantServer {
    * @param debug - should debug be used
    */
   constructor(protected proxy: boolean | string, debug: string | boolean) {
-    this.sessionSecret = (Math.random() * 100).toString()
+    this.sessionSecret = Math.floor(Math.random() * 1000000).toString()
     this.proxy = proxy
 
     if (debug) {
