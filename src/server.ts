@@ -1,26 +1,14 @@
 import express from 'express'
 import session from 'express-session'
 import parser from 'body-parser'
-// @ts-ignore
-import grant from 'grant'
+import grant, { GrantConfig } from 'grant'
 import { Server } from 'http'
-
-/**
- * Grunt configuration
- */
-export interface GrantConfig {
-  defaults: {
-    origin: string
-  }
-}
 
 /**
  * Grant server class
  */
 export class GrantServer {
   protected sessionSecret: string
-
-  protected configuration: any
 
   protected port: number = 3000
 
@@ -48,8 +36,7 @@ export class GrantServer {
    * @returns Promise to be resolved when server starts
    */
   start(configuration: GrantConfig): Promise<void> {
-    this.configuration = configuration
-    this.port = resolvePort(this.configuration)
+    this.port = resolvePort(configuration)
 
     const grantExpress = grant.express()
 
@@ -64,7 +51,7 @@ export class GrantServer {
           })
         )
         .use(parser.urlencoded({ extended: true }))
-        .use(grantExpress(this.configuration))
+        .use(grantExpress(configuration))
         .listen(this.port, () => {
           console.log(`server started on port ${this.port}`)
           resolve()

@@ -1,8 +1,9 @@
-import { GrantServer, GrantConfig } from './server'
+import { GrantServer } from './server'
 import * as watcher from 'chokidar'
 import fs from 'fs'
 import path from 'path'
 import commander from 'commander'
+import { GrantConfig } from 'grant'
 
 /**
  * Entry point for the application
