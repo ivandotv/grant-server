@@ -14,7 +14,8 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     // project: './tsconfig.eslint.json',
-    sourceType: 'module'
+    sourceType: 'module',
+    ecmaVersion: 2020
   },
   rules: {
     'no-unused-vars': 'off',
