@@ -4,13 +4,12 @@ import parser from 'body-parser'
 import grant, { GrantConfig } from 'grant'
 import { Server } from 'http'
 
+const DEFAULT_PORT = 3000
 /**
  * Grant server class
  */
 export class GrantServer {
   protected sessionSecret: string
-
-  protected port: number = 3000
 
   server: Server | undefined
 
@@ -36,7 +35,7 @@ export class GrantServer {
    * @returns Promise to be resolved when server starts
    */
   start(configuration: GrantConfig): Promise<void> {
-    this.port = resolvePort(configuration)
+    const port = resolvePort(configuration, DEFAULT_PORT)
 
     const grantExpress = grant.express()
 
@@ -52,8 +51,8 @@ export class GrantServer {
         )
         .use(parser.urlencoded({ extended: true }))
         .use(grantExpress(configuration))
-        .listen(this.port, () => {
-          console.log(`server started on port ${this.port}`)
+        .listen(port, () => {
+          console.log(`server started on port ${port}`)
           resolve()
         })
     })
