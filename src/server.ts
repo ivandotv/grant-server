@@ -14,8 +14,6 @@ export interface GrantConfig {
   }
 }
 
-const grantExpress = grant.express()
-
 /**
  * Grant server class
  */
@@ -52,6 +50,8 @@ export class GrantServer {
   start(configuration: GrantConfig): Promise<void> {
     this.configuration = configuration
     this.port = resolvePort(this.configuration)
+
+    const grantExpress = grant.express()
 
     return new Promise((resolve) => {
       this.server = express()
