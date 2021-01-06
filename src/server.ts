@@ -37,6 +37,8 @@ export class GrantServer {
   start(configuration: GrantConfig): Promise<void> {
     const port = resolvePort(configuration, DEFAULT_PORT)
 
+    process.env.GRANT_HC = String(port)
+
     const grantExpress = grant.express()
 
     return new Promise((resolve) => {
@@ -51,6 +53,9 @@ export class GrantServer {
         )
         .use(parser.urlencoded({ extended: true }))
         .use(grantExpress(configuration))
+        .get('/healthcheck', (req, res) => {
+          res.sendStatus(200)
+        })
         .listen(port, () => {
           console.log(`server started on port ${port}`)
           resolve()
