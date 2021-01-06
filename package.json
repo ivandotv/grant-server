@@ -12,7 +12,7 @@
     "test": "tests"
   },
   "bin": {
-    "grant-srv": "dist/cjs/index.js"
+    "grant-serve": "dist/cjs/index.js"
   },
   "scripts": {
     "prepublishOnly": "npm run build",
