@@ -1,3 +1,20 @@
+## [2.0.0](https://github.com/ivandotv/grant-server/compare/v1.0.10...v2.0.0) (2021-01-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **package:** bin command is ranamed from grant-srv to grant-serve
+
+* remove port value as class property ([21fafb0](https://github.com/ivandotv/grant-server/commit/21fafb0e03f619161702a4ccfa62b348eed181fd))
+* use bundled typescript types ([ca10edc](https://github.com/ivandotv/grant-server/commit/ca10edc488aa38e44277ff116341ee51df87ab69))
+* change how session secret is calculated ([b70b8ad](https://github.com/ivandotv/grant-server/commit/b70b8add5dcc48be8bfa0c24612fc80f4882c002))
+* initialize grunt express middleware when start is called ([8d6cc31](https://github.com/ivandotv/grant-server/commit/8d6cc31371ff48820abee81b4adbd954b73dcd71))
+
+
+### fix
+
+* **package:** change the name of the bin command ([6d457c2](https://github.com/ivandotv/grant-server/commit/6d457c23f4491f4db4528b67a88f1b4288ee433b))
+
 ### [1.0.10](https://github.com/ivandotv/grant-server/compare/v1.0.9...v1.0.10) (2020-12-05)
 
 
