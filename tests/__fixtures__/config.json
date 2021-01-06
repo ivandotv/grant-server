@@ -1,11 +1,12 @@
 {
   "defaults": {
     "origin": "http://localhost:3000",
-    "response": ["tokens"]
+    "prefix": "/oauth"
   },
   "google": {
-    "secret": "ak3oEr70o6Zw8YOTn-fQwFMZ",
-    "callback": "localhost/callback",
+    "key": "GOOGLE_KEY",
+    "secret": "GOOGLE_SECRET",
+    "callback": "http://localhost/my-google-callback",
     "scope": ["openid"]
   }
 }

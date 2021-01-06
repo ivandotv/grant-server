@@ -1,4 +1,5 @@
 import { GrantServer } from './server'
+import chalk from 'chalk'
 import * as watcher from 'chokidar'
 import fs from 'fs'
 import path from 'path'
@@ -51,9 +52,20 @@ export function main(args: string[], program: commander.Command): void {
       console.log(`watching file for changes: ${program.config}`)
     })
     .on('change', async () => {
-      console.log('reloading configuration')
-      await server.stop()
-      await server.start(loadConfig(program.config))
+      try {
+        const config = loadConfig(program.config)
+        console.log('reloading configuration')
+        await server.stop()
+        await server.start(config)
+        console.log('configuration reloaded')
+      } catch (e) {
+        console.warn(
+          chalk.bold.red(
+            'Configuration parsing error. Using previous configuration.'
+          )
+        )
+        console.error(e.stack)
+      }
     })
 }
 
