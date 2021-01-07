@@ -1,3 +1,15 @@
+## [3.0.0](https://github.com/ivandotv/grant-server/compare/v2.0.0...v3.0.0) (2021-01-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* default configuration filename has been changed from config.json to
+grant.config.json
+
+### feat
+
+* by default, try to load "grant.config.json" from the current working directory ([95704be](https://github.com/ivandotv/grant-server/commit/95704be2876e46b578bff68ea517b0b074940a72))
+
 ## [2.0.0](https://github.com/ivandotv/grant-server/compare/v1.0.10...v2.0.0) (2021-01-06)
 
 
