@@ -22,7 +22,7 @@ export function main(args: string[], program: commander.Command): void {
     .option(
       '-c, --config <path>',
       'Path to the configuration file',
-      './config.json'
+      `${process.cwd()}/grant.config.json`
     )
     .option(
       '-p, --trust-proxy [proxy-options]',

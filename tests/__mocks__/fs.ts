@@ -7,7 +7,7 @@ const fsMock = jest.genMockFromModule<typeof fs>('fs')
 
 const MOCK_FILES = {
   'path/to/config-1.json': JSON.stringify(
-    require('../__fixtures__/config.json')
+    require('../__fixtures__/grant.config.json')
   ),
   'path/to/files/error.json': 'malformedJSon'
 }

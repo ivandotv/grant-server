@@ -19,7 +19,9 @@ describe('CLI args', () => {
     try {
       main(args, program)
     } catch {
-      expect(program.config).toBe(path.resolve(process.cwd(), 'config.json'))
+      expect(program.config).toBe(
+        path.resolve(process.cwd(), 'grant.config.json')
+      )
     }
   })
   test('If configuration file is passed, use it', () => {

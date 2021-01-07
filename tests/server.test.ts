@@ -1,4 +1,10 @@
+import { GrantConfig } from 'grant'
 import { GrantServer } from '../src/server'
+
+let config: GrantConfig
+beforeEach(() => {
+  config = require('./__fixtures__/grant.config.json')
+})
 describe('Grant Server', () => {
   console.log = jest.fn()
   test('Server is setting env DEBUG to true', () => {
@@ -19,7 +25,6 @@ describe('Grant Server', () => {
   test('Start the server', async () => {
     const debugValue = 'req,resp'
     const grantServer = new GrantServer(true, debugValue)
-    const config = require('./__fixtures__/config.json')
 
     await grantServer.start(config)
 
@@ -30,7 +35,6 @@ describe('Grant Server', () => {
   test('Stop the server', async () => {
     const debugValue = 'req,resp'
     const grantServer = new GrantServer(true, debugValue)
-    const config = require('./__fixtures__/config.json')
 
     await grantServer.start(config)
     await grantServer.stop()
@@ -40,8 +44,7 @@ describe('Grant Server', () => {
   test('Server listens on port from the configuration file', async () => {
     const debugValue = 'req,resp'
     const grantServer = new GrantServer(true, debugValue)
-    const config = require('./__fixtures__/config.json')
-    const port = config.defaults.origin.split(':')[2]
+    const port = config!.defaults!.origin!.split(':')[2]
 
     await grantServer.start(config)
 
