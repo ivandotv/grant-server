@@ -1,3 +1,8 @@
+### [3.0.1](https://github.com/ivandotv/grant-server/compare/v3.0.0...v3.0.1) (2021-01-08)
+
+
+* **readme:** update configuration option explanation ([7cfad0d](https://github.com/ivandotv/grant-server/commit/7cfad0d10198e94deb424bf79f4caa0c9f9b6f99))
+
 ## [3.0.0](https://github.com/ivandotv/grant-server/compare/v2.0.0...v3.0.0) (2021-01-07)
 
 
