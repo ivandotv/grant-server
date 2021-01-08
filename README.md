@@ -23,12 +23,13 @@ grant - server
 - [How it works](#how-it-works)
 - [Command line options](#command-line-options)
 - [Docker image](#docker-image)
+- [Docker usage](#docker-usage)
 
 ## How it works
 
-After installing the package just run `grant-srv` to have a server running. You will need a [grant configuration file](https://github.com/simov/grant#configuration) to set up different OAuth providers. The server will automatically watch for changes in the configuration file, and it will automatically reload.
+After installing, you will need a [grant configuration file](https://github.com/simov/grant#configuration) to set up different OAuth providers. By default, the module looks for `grant.config.json` file in the currently executing directory. The server will automatically watch for changes in the configuration file and it will automatically reload.
 
-example configuration file:
+example configuration file with Google auth:
 
 ```json
 {
@@ -45,35 +46,11 @@ example configuration file:
 }
 ```
 
-By using the file above we are enabling google OAuth point on `http://localhost:3000/oauth/google`, and we are asking for `openid` scope. After the tokens have been acquired, the user will be redirected to `https://redirect-user-to-your-app.com`
-
-> Please note that the original grant server code can take internal routes for a `callback` e.g. (`/my-google-callback`) but since the `server` is self-contained you can't access internal routes, so you will always need to redirect to some outside server or service (`http://localhost:4000`, `http://your-app.com`)
-
-You can also send a `POST` request to the OAuth point like so:
-
-```html
-<form action="/oauth/google" method="POST" accept-charset="utf-8">
-  <fieldset>
-    <div>
-      <label>
-        <input type="checkbox" name="scope" value="openid" checked /> openid
-      </label>
-    </div>
-    <div>
-      <label>
-        <input type="checkbox" name="scope" value="email" /> email
-      </label>
-    </div>
-    <div>
-      <button>Submit</button>
-    </div>
-  </fieldset>
-</form>
-```
+By using the file above we are enabling google OAuth point on `http://localhost:3000/oauth/google`, and we are asking for `OpenID` scope. After the tokens have been acquired, the caller will be redirected to `https://redirect-user-to-your-app.com` with the tokens available via query parameters.
 
 ## Command line options
 
-- `-c` or `--config` Grant configuration file. If not provided, by default server will look for `config.json` in the currently executing directory.
+- `-c` or `--config` Grant configuration file. If not provided, by default server will look for `grant.config.json` in the currently executing directory.
 
 - `-d` or `--debug` Enable writing tokens to `stdout`. It uses [request-logs module](https://github.com/simov/request-logs). If only the flag is passed it will default to `res,json` otherwise you can customize what the output will be e.g. `-d res,req,json,body`
 
@@ -83,7 +60,7 @@ You can also send a `POST` request to the OAuth point like so:
 
 Docker image is available on [docker hub](https://hub.docker.com/repository/docker/ivandotv/grant-server). Image is based on github releases, so it's always up to date.
 
-### Usage
+### Docker usage
 
 Pull the image:
 
@@ -100,6 +77,6 @@ docker run -it -v /config-dir:/opt/grant-server/config-dir ivandotv/grant-server
 Few things to keep in mind when using the docker image.
 
 - Server is started in `/opt/grant-server` directory inside the container.
-- Make sure that exposed port is the same as in the `config.json` file.
+- Make sure that the exposed port is the same as in the configuration file.
 - If you mount only the external config file: `-v config.json:/opt/grant-server/config.json` Automatic reloading of the server will not work, because the server will not **see** the changes in the file.
   Better option is to mount the **directory** where configuration file is located: `-v /config-dir:/opt/grant-server/config-dir` and then pass the `-c` flag to the container like so: `-c config/config.json`.
