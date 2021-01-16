@@ -1,3 +1,8 @@
+### [3.0.2](https://github.com/ivandotv/grant-server/compare/v3.0.1...v3.0.2) (2021-01-16)
+
+
+* **readme:** update command line options documentation ([68142d4](https://github.com/ivandotv/grant-server/commit/68142d4cb9668e609b07d69f6ed17f498aec0137))
+
 ### [3.0.1](https://github.com/ivandotv/grant-server/compare/v3.0.0...v3.0.1) (2021-01-08)
 
 
