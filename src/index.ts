@@ -46,6 +46,7 @@ function gracefulShutdown(
 ): void {
   if (server) {
     server.stop().finally(() => {
+      console.log('server stopped')
       process.exit(code)
     })
 
