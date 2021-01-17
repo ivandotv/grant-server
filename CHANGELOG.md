@@ -1,3 +1,8 @@
+### [3.1.1](https://github.com/ivandotv/grant-server/compare/v3.1.0...v3.1.1) (2021-01-17)
+
+
+* log to console when server is closed ([e5f5970](https://github.com/ivandotv/grant-server/commit/e5f5970f16d2c9e4544c103fe4678b5f0e48961b))
+
 ## [3.1.0](https://github.com/ivandotv/grant-server/compare/v3.0.2...v3.1.0) (2021-01-17)
 
 ### [3.0.2](https://github.com/ivandotv/grant-server/compare/v3.0.1...v3.0.2) (2021-01-16)
