@@ -12,7 +12,7 @@ import { GrantConfig } from 'grant'
  * @param args  program arguments
  * @param program program instance
  */
-export function main(args: string[], program: commander.Command): void {
+export function main(args: string[], program: commander.Command): GrantServer {
   program
     .version(__VERSION__)
     .option(
@@ -41,8 +41,8 @@ export function main(args: string[], program: commander.Command): void {
 
   const config = loadConfig(program.config)
 
-  const server = new GrantServer(program.trustProxy, program.debug)
-  server.start(config)
+  const grantServer = new GrantServer(program.trustProxy, program.debug)
+  grantServer.start(config)
 
   watcher
     .watch(program.config, {
@@ -55,8 +55,8 @@ export function main(args: string[], program: commander.Command): void {
       try {
         const config = loadConfig(program.config)
         console.log('reloading configuration')
-        await server.stop()
-        await server.start(config)
+        await grantServer.stop()
+        await grantServer.start(config)
         console.log('configuration reloaded')
       } catch (e) {
         console.warn(
@@ -67,6 +67,8 @@ export function main(args: string[], program: commander.Command): void {
         console.error(e.stack)
       }
     })
+
+  return grantServer
 }
 
 /**
