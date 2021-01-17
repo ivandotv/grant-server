@@ -5,7 +5,7 @@ on:
 jobs:
   push_to_registry:
     name: Build and publish
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Get release tag
         id: tag_name
@@ -13,7 +13,7 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Npm Install
-        run: npm install
+        run: npm ci
       - name: Npm Build
         run: npm run build
       - name: Login to DockerHub
