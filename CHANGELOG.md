@@ -1,3 +1,5 @@
+## [3.1.0](https://github.com/ivandotv/grant-server/compare/v3.0.2...v3.1.0) (2021-01-17)
+
 ### [3.0.2](https://github.com/ivandotv/grant-server/compare/v3.0.1...v3.0.2) (2021-01-16)
 
 
