@@ -87,7 +87,7 @@
     "babel-preset-minify": "^0.5.1",
     "commitizen": "^4.2.2",
     "conventional-changelog-conventionalcommits": "^4.5.0",
-    "core-js": "^3.8.2",
+    "core-js": "^3.10.1",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "del-cli": "^3.0.1",
