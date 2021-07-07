@@ -1,4 +1,4 @@
-FROM node:14.17.1-alpine
+FROM node:14.17.2-alpine
 
 RUN apk --no-cache add curl dumb-init
 
