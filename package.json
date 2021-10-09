@@ -91,7 +91,7 @@
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "del-cli": "^3.0.1",
-    "eslint": "^7.17.0",
+    "eslint": "^8.0.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-prettier": "^3.4.0",
